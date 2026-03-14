@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PestView Partner Program</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+text-align:center;
+padding:80px;
+}
+
+h1{
+font-size:40px;
+margin-bottom:40px;
+}
+
+.container{
+display:flex;
+justify-content:center;
+gap:40px;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:10px;
+width:250px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+a{
+text-decoration:none;
+font-weight:bold;
+color:#0088cc;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>PestView Partner Program</h1>
+
+<div class="container">
+
+<div class="card">
+<h3>Pest Control Companies</h3>
+<a href="pest-control/">Open Page</a>
+</div>
+
+<div class="card">
+<h3>Distributors</h3>
+<a href="distributors/">Open Page</a>
+</div>
+
+</div>
+
+</body>
+</html>
