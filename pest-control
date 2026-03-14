@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PestView Strategic Partner Program for Pest Control Companies</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text: #17324d;
+      --muted: #5c6f82;
+      --primary: #00a6a6;
+      --secondary: #ff8a3d;
+      --border: #dfe7ee;
+      --dark: #0f2235;
+      --light-accent: #eef8f8;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f2235 0%, #17324d 60%, #00a6a6 100%);
+      color: white;
+      padding: 72px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 13px;
+      letter-spacing: 0.2px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 42px;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.9);
+      font-size: 17px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .summary-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 22px;
+      padding: 26px;
+      backdrop-filter: blur(6px);
+    }
+
+    .summary-card h3 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-item {
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .summary-item strong {
+      display: block;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 62px 0;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 32px;
+      color: var(--dark);
+    }
+
+    .section-subtitle {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 920px;
+    }
+
+    .lang-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .lang-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 28px rgba(19, 39, 66, 0.05);
+    }
+
+    .lang-card h3 {
+      margin: 0 0 10px;
+      color: var(--dark);
+      font-size: 22px;
+    }
+
+    .lang-card p, .lang-card li {
+      color: var(--muted);
+    }
+
+    .lang-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 28px rgba(19, 39, 66, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: var(--dark);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .highlight {
+      background: var(--light-accent);
+    }
+
+    .table-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(19, 39, 66, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      background: white;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 16px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    thead th {
+      background: #17324d;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .benefit-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .benefit-box h3 {
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    .benefit-box ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .closing {
+      background: linear-gradient(135deg, #17324d 0%, #0f2235 100%);
+      color: white;
+      padding: 64px 0;
+    }
+
+    .closing-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 34px;
+      text-align: center;
+    }
+
+    .closing h2 {
+      margin: 0 0 12px;
+      font-size: 34px;
+    }
+
+    .closing p {
+      max-width: 820px;
+      margin: 0 auto 22px;
+      color: rgba(255,255,255,0.86);
+      font-size: 17px;
+    }
+
+    footer {
+      padding: 22px 0 40px;
+      color: #6d7f92;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .lang-grid,
+      .cards,
+      .benefits-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 34px; }
+      .section-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">PestView Founding Strategic Partner Program</div>
+        <h1>Strategic Partner Program for Pest Control Companies<br>Πρόγραμμα Στρατηγικών Συνεργατών για Εταιρίες Pest Control</h1>
+        <p>
+          Join a limited group of pest control companies shaping the next generation of digital pest management,
+          compliance reporting, smart monitoring and client service workflows.
+        </p>
+        <p>
+          Ενταχθείτε σε μια περιορισμένη ομάδα εταιριών pest control που θα συμμετέχουν στη διαμόρφωση της επόμενης γενιάς
+          digital pest management, compliance reporting, smart monitoring και σύγχρονων workflows εξυπηρέτησης πελατών.
+        </p>
+        <div class="cta-row">
+          <a href="#tiers" class="btn btn-primary">View Partner Levels / Δείτε τα Επίπεδα</a>
+          <a href="#contact" class="btn btn-secondary">Book a Meeting / Κλείστε Συνάντηση</a>
+        </div>
+      </div>
+      <div class="summary-card">
+        <h3>Program Snapshot / Σύνοψη Προγράμματος</h3>
+        <div class="summary-list">
+          <div class="summary-item">
+            <strong>3 Partner Levels</strong>
+            Associate, Strategic and Lead Strategic Partner
+          </div>
+          <div class="summary-item">
+            <strong>4-Year Commitment</strong>
+            Annual vesting model with long-term alignment
+          </div>
+          <div class="summary-item">
+            <strong>Full Platform Access</strong>
+            Operations, reporting, compliance and future smart modules
+          </div>
+          <div class="summary-item">
+            <strong>Limited Availability</strong>
+            Select founding partners only
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">About PestView / Τι είναι το PestView</h2>
+      <p class="section-subtitle">
+        PestView is a specialized platform for pest control operations, digital reporting, visit execution, compliance,
+        smart monitoring and future AI-enabled workflows for food industry, logistics, retail and professional clients.
+        <br><br>
+        Το PestView είναι μια εξειδικευμένη πλατφόρμα για pest control operations, digital reporting, εκτέλεση επισκέψεων,
+        compliance, smart monitoring και μελλοντικά AI-enabled workflows για βιομηχανίες τροφίμων, logistics, λιανική και επαγγελματικούς πελάτες.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <h3>Operations / Λειτουργία</h3>
+          <p>Clients, contracts, appointments, tasks, technicians, devices and service records in one environment.</p>
+        </div>
+        <div class="card">
+          <h3>Compliance / Συμμόρφωση</h3>
+          <p>Structured reporting aligned with IFS, BRCGS, HACCP, ISO 22000 and internal audit requirements.</p>
+        </div>
+        <div class="card">
+          <h3>Smart Growth / Έξυπνη Ανάπτυξη</h3>
+          <p>IoT integrations, advanced reports, client-facing dashboards and future AI-driven monitoring capabilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section highlight">
+    <div class="container">
+      <h2 class="section-title">Why Pest Control Companies Join / Γιατί να συμμετάσχουν εταιρίες pest control</h2>
+      <div class="benefits-grid">
+        <div class="benefit-box">
+          <h3>English</h3>
+          <ul>
+            <li>Upgrade your service offering with a modern digital platform</li>
+            <li>Strengthen reporting quality for food industry and professional clients</li>
+            <li>Improve technician workflows, visit execution and service consistency</li>
+            <li>Gain early access to upcoming modules and innovations</li>
+            <li>Influence the product roadmap through strategic collaboration</li>
+            <li>Receive equity through an annual vesting model</li>
+          </ul>
+        </div>
+        <div class="benefit-box">
+          <h3>Ελληνικά</h3>
+          <ul>
+            <li>Αναβαθμίζετε τις υπηρεσίες σας με μια σύγχρονη digital πλατφόρμα</li>
+            <li>Βελτιώνετε την ποιότητα reporting για βιομηχανίες τροφίμων και επαγγελματικούς πελάτες</li>
+            <li>Οργανώνετε καλύτερα τους τεχνικούς, τις επισκέψεις και τη συνέπεια των υπηρεσιών</li>
+            <li>Αποκτάτε early access σε νέα modules και καινοτομίες</li>
+            <li>Συμμετέχετε ενεργά στη διαμόρφωση του product roadmap</li>
+            <li>Λαμβάνετε equity με ετήσιο μοντέλο vesting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tiers">
+    <div class="container">
+      <h2 class="section-title">Partner Levels / Επίπεδα Συνεργασίας</h2>
+      <p class="section-subtitle">
+        The program includes three structured participation levels. Equity is allocated annually, subject to continued participation.
+        <br><br>
+        Το πρόγραμμα περιλαμβάνει τρία δομημένα επίπεδα συμμετοχής. Το equity αποδίδεται ετησίως, με προϋπόθεση τη συνέχιση της συνεργασίας.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Partner Level<br>Επίπεδο Συνεργάτη</th>
+              <th>Annual Participation<br>Ετήσια Συμμετοχή</th>
+              <th>Equity / Year<br>Equity / Έτος</th>
+              <th>Equity in 4 Years<br>Equity σε 4 Έτη</th>
+              <th>Best For<br>Κατάλληλο Για</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Associate Partner</strong></td>
+              <td>€15.000</td>
+              <td>0.20%</td>
+              <td>0.80%</td>
+              <td>Smaller companies entering digital transformation<br>Μικρότερες εταιρίες που ξεκινούν ψηφιακό μετασχηματισμό</td>
+            </tr>
+            <tr>
+              <td><strong>Strategic Partner</strong></td>
+              <td>€30.000</td>
+              <td>0.40%</td>
+              <td>1.60%</td>
+              <td>Core partners seeking stronger platform use and strategic involvement<br>Βασικοί συνεργάτες με αυξημένη χρήση της πλατφόρμας και στρατηγική συμμετοχή</td>
+            </tr>
+            <tr>
+              <td><strong>Lead Strategic Partner</strong></td>
+              <td>€50.000</td>
+              <td>0.70%</td>
+              <td>2.80%</td>
+              <td>Larger organizations with broader commercial or market impact<br>Μεγαλύτεροι οργανισμοί με ευρύτερη εμπορική ή αγοραστική επιρροή</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        Note: Equity terms are indicative and subject to final legal and commercial agreement. Equity is intended to vest annually over a 4-year collaboration period. <br>
+        Σημείωση: Οι όροι equity είναι ενδεικτικοί και υπόκεινται σε οριστική νομική και εμπορική συμφωνία. Το equity προορίζεται να κατοχυρώνεται ετησίως σε περίοδο συνεργασίας 4 ετών.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What Partners Receive / Τι λαμβάνουν οι συνεργάτες</h2>
+      <div class="lang-grid">
+        <div class="lang-card">
+          <h3>English</h3>
+          <ul>
+            <li>Full PestView platform access</li>
+            <li>Early access to selected new modules</li>
+            <li>Participation in roadmap and product feedback sessions</li>
+            <li>Founding Strategic Partner positioning</li>
+            <li>Long-term alignment through equity vesting</li>
+            <li>Opportunity to co-shape digital pest management standards</li>
+          </ul>
+        </div>
+        <div class="lang-card">
+          <h3>Ελληνικά</h3>
+          <ul>
+            <li>Πλήρη πρόσβαση στην πλατφόρμα PestView</li>
+            <li>Early access σε επιλεγμένα νέα modules</li>
+            <li>Συμμετοχή σε roadmap και product feedback sessions</li>
+            <li>Προβολή ως Founding Strategic Partner</li>
+            <li>Μακροπρόθεσμη ευθυγράμμιση μέσω ετήσιου equity vesting</li>
+            <li>Δυνατότητα συνδιαμόρφωσης των digital standards του κλάδου</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section highlight">
+    <div class="container">
+      <h2 class="section-title">How the Process Works / Πώς λειτουργεί η διαδικασία</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Introduction</h3>
+          <p>Intro meeting, platform presentation and strategic fit discussion.<br><br>Αρχική συνάντηση, παρουσίαση πλατφόρμας και συζήτηση στρατηγικής καταλληλότητας.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Evaluation</h3>
+          <p>Assessment of company profile, clients, market position and use cases.<br><br>Αξιολόγηση προφίλ εταιρίας, πελατολογίου, θέσης στην αγορά και use cases.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Agreement</h3>
+          <p>Definition of participation level, commercial terms and vesting structure.<br><br>Ορισμός επιπέδου συμμετοχής, εμπορικών όρων και δομής vesting.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Onboarding</h3>
+          <p>Platform setup, onboarding and strategic collaboration rollout.<br><br>Ρύθμιση πλατφόρμας, onboarding και έναρξη της στρατηγικής συνεργασίας.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" id="contact">
+    <div class="container">
+      <div class="closing-card">
+        <h2>Become a Founding Strategic Partner<br>Γίνετε Founding Strategic Partner</h2>
+        <p>
+          We are currently speaking with a limited number of pest control companies interested in joining the early network of strategic partners behind PestView.
+          <br><br>
+          Αυτή την περίοδο συνομιλούμε με περιορισμένο αριθμό εταιριών pest control που ενδιαφέρονται να ενταχθούν στο αρχικό δίκτυο στρατηγικών συνεργατών του PestView.
+        </p>
+        <div class="cta-row" style="justify-content:center;">
+          <a href="mailto:info@pestview.io" class="btn btn-primary">info@pestview.io</a>
+          <a href="mailto:gxagaras@pestview.io" class="btn btn-secondary">Founder Contact / Επικοινωνία Founder</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    PestView • Strategic Partner Program for Pest Control Companies • Bilingual Landing Page
+  </footer>
+</body>
+</html>
