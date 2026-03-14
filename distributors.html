@@ -159,6 +159,77 @@ Example: A distributor investing €30,000 can recover the full amount through t
 
 <section class="section" id="contact">
 <div class="container">
+  <section class="section" id="roi">
+<div class="container">
+
+<h2>Distributor ROI Calculator</h2>
+<p>
+Estimate how quickly a distributor can recover their investment based on the number of new subscriptions sold.
+<br>
+Υπολογίστε πόσο γρήγορα μπορεί να ανακτήσει την επένδυσή του ένας distributor.
+</p>
+
+<div class="benefits">
+
+<div class="benefit-box">
+
+<h3>Inputs</h3>
+
+<label>Investment (€)</label>
+<input id="investment" type="number" value="30000" style="width:100%;padding:10px;margin-bottom:10px">
+
+<label>Subscription Price (€)</label>
+<input id="subscription" type="number" value="2500" style="width:100%;padding:10px;margin-bottom:10px">
+
+<label>New Subscriptions per Month</label>
+<input id="monthly" type="number" value="2" style="width:100%;padding:10px;margin-bottom:10px">
+
+<button onclick="calculateROI()" class="btn btn-primary">Calculate</button>
+
+</div>
+
+<div class="benefit-box">
+
+<h3>Results</h3>
+
+<p><strong>Subscriptions needed for recovery:</strong></p>
+<p id="subsNeeded" style="font-size:20px;color:#0f2235"></p>
+
+<p><strong>Estimated months to recover investment:</strong></p>
+<p id="monthsNeeded" style="font-size:20px;color:#0f2235"></p>
+
+<p class="note">
+Recovery is calculated using <strong>new subscriptions only</strong>.  
+Renewals generate commission but are not included in the recovery calculation.
+</p>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<script>
+function calculateROI(){
+
+let investment = parseFloat(document.getElementById("investment").value);
+let subscription = parseFloat(document.getElementById("subscription").value);
+let monthly = parseFloat(document.getElementById("monthly").value);
+
+if(subscription <=0 || monthly <=0){
+alert("Please enter valid values");
+return;
+}
+
+let subsNeeded = Math.ceil(investment / subscription);
+let monthsNeeded = Math.ceil(subsNeeded / monthly);
+
+document.getElementById("subsNeeded").innerText = subsNeeded + " subscriptions";
+document.getElementById("monthsNeeded").innerText = monthsNeeded + " months";
+
+}
+</script>
 <h2>Become a PestView Distributor Partner</h2>
 <p>
 We are currently onboarding distributors interested in developing new digital sales channels for pest control technology and services.
