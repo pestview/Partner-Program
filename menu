@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PestView Partner Program</title>
+</head>
+<body>
+
+<h1>PestView Partner Program</h1>
+
+<p>Select Partner Category:</p>
+
+<ul>
+<li><a href="pest-control.html">Pest Control Companies</a></li>
+<li><a href="distributors.html">Distributors</a></li>
+</ul>
+
+</body>
+</html>
+
