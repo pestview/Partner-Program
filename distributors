@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PestView Distributor Partner Program</title>
+<style>
+:root{
+--primary:#00a6a6;
+--dark:#0f2235;
+--accent:#ff8a3d;
+--bg:#f5f7fa;
+--card:#ffffff;
+--border:#dfe7ee;
+--text:#17324d;
+--muted:#5c6f82;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{width:min(1180px,calc(100% - 32px));margin:auto}
+.hero{background:linear-gradient(135deg,#0f2235,#17324d,#00a6a6);color:white;padding:70px 0}
+h1{margin:0 0 16px;font-size:40px}
+.hero p{max-width:760px}
+.btn{display:inline-block;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold;margin-right:10px}
+.btn-primary{background:var(--accent);color:white}
+.btn-secondary{border:1px solid rgba(255,255,255,0.4);color:white}
+.section{padding:60px 0}
+.section h2{margin-top:0;font-size:30px;color:var(--dark)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.card h3{margin-top:0}
+.table-wrap{background:white;border-radius:16px;border:1px solid var(--border);overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th,td{padding:16px;border-bottom:1px solid var(--border);text-align:left}
+th{background:#17324d;color:white}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.benefit-box{background:white;border:1px solid var(--border);border-radius:16px;padding:22px}
+.footer{background:#0f2235;color:white;text-align:center;padding:40px 0;margin-top:40px}
+@media(max-width:900px){.cards,.benefits{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="container">
+<h1>Distributor Partner Program</h1>
+<p>
+Join the PestView ecosystem as a technology or product distributor and gain access to a new digital sales channel for pest control companies.
+</p>
+<p>
+Ενταχθείτε στο οικοσύστημα του PestView ως distributor και αποκτήστε ένα νέο ψηφιακό κανάλι πωλήσεων προς εταιρίες pest control.
+</p>
+<a class="btn btn-primary" href="#model">Distributor Model</a>
+<a class="btn btn-secondary" href="#contact">Contact</a>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<h2>Why Distributors Join / Γιατί συμμετέχουν οι distributors</h2>
+<div class="cards">
+<div class="card">
+<h3>New Sales Channel</h3>
+<p>Sell products and solutions through the PestView network of pest control companies.</p>
+<p>Νέο κανάλι πωλήσεων προς εταιρίες pest control που χρησιμοποιούν την πλατφόρμα.</p>
+</div>
+<div class="card">
+<h3>Product Integration</h3>
+<p>Integrate traps, sensors, IoT devices or consumables directly into the platform ecosystem.</p>
+<p>Ενσωμάτωση παγίδων, αισθητήρων και IoT συσκευών στην πλατφόρμα.</p>
+</div>
+<div class="card">
+<h3>Market Visibility</h3>
+<p>Your products become visible to a network of pest control operators.</p>
+<p>Τα προϊόντα σας αποκτούν προβολή σε δίκτυο επαγγελματιών pest control.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="model">
+<div class="container">
+<h2>Distributor Investment & Recovery Model</h2>
+<p>
+Distributors can recover their participation investment through subscription sales they generate.
+</p>
+<p>
+Οι distributors μπορούν να ανακτήσουν το ποσό συμμετοχής μέσω των συνδρομών που πωλούν.
+</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Partner Level</th>
+<th>Investment</th>
+<th>Sales Credit</th>
+<th>Commission After Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Associate Distributor</td>
+<td>€15,000</td>
+<td>100% recovery via subscription sales</td>
+<td>20% commission</td>
+</tr>
+<tr>
+<td>Strategic Distributor</td>
+<td>€30,000</td>
+<td>100% recovery via subscription sales</td>
+<td>25% commission</td>
+</tr>
+<tr>
+<td>Lead Distributor</td>
+<td>€50,000</td>
+<td>100% recovery via subscription sales</td>
+<td>30% commission</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="note">
+Example: A distributor investing €30,000 can recover the full amount through the first subscriptions sold. After recovery, commissions apply normally.
+</p>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<h2>What Distributors Receive</h2>
+<div class="benefits">
+<div class="benefit-box">
+<h3>English</h3>
+<ul>
+<li>Access to PestView distributor ecosystem</li>
+<li>Ability to sell subscriptions</li>
+<li>Investment recovery through sales credits</li>
+<li>Ongoing commissions after recovery</li>
+<li>Integration opportunities with devices or products</li>
+</ul>
+</div>
+<div class="benefit-box">
+<h3>Ελληνικά</h3>
+<ul>
+<li>Πρόσβαση στο οικοσύστημα distributors του PestView</li>
+<li>Δυνατότητα πώλησης συνδρομών</li>
+<li>Ανάκτηση επένδυσης μέσω πωλήσεων</li>
+<li>Προμήθεια μετά την ανάκτηση</li>
+<li>Ενσωμάτωση προϊόντων ή συσκευών στην πλατφόρμα</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<h2>Become a PestView Distributor Partner</h2>
+<p>
+We are currently onboarding distributors interested in developing new digital sales channels for pest control technology and services.
+</p>
+<p>
+Αναζητούμε distributors που θέλουν να αναπτύξουν νέα ψηφιακά κανάλια πωλήσεων στον χώρο του pest control.
+</p>
+<a class="btn btn-primary" href="mailto:info@pestview.io">Contact</a>
+</div>
+</section>
+
+<div class="footer">
+PestView Distributor Partner Program
+</div>
+
+</body>
+</html>
