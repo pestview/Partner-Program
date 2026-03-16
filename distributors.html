@@ -1,446 +1,1667 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PestView Distributor Partner Program</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PestView Distributor Partner Program</title>
+  <style>
+    :root{
+      --primary:#00a6a6;
+      --primary-dark:#0b7f7f;
+      --dark:#0f2235;
+      --dark-2:#17324d;
+      --accent:#ff8a3d;
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --border:#dfe7ee;
+      --text:#17324d;
+      --muted:#617487;
+      --success:#1f9d68;
+      --shadow:0 16px 40px rgba(15,34,53,0.10);
+      --radius:18px;
+      --radius-sm:12px;
+      --max:1180px;
+    }
 
-<style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-:root{
---primary:#00a6a6;
---dark:#0f2235;
---accent:#ff8a3d;
---bg:#f5f7fa;
---card:#ffffff;
---border:#dfe7ee;
---text:#17324d;
---muted:#5c6f82;
-}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%}
 
-*{box-sizing:border-box}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:auto;
+    }
 
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.6
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(15,34,53,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
 
-.container{
-width:min(1180px,calc(100% - 32px));
-margin:auto
-}
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
 
-.hero{
-background:linear-gradient(135deg,#0f2235,#17324d,#00a6a6);
-color:white;
-padding:70px 0
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:700;
+      letter-spacing:0.3px;
+    }
 
-h1{margin:0 0 16px;font-size:40px}
+    .brand-badge{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      color:white;
+      box-shadow:var(--shadow);
+    }
 
-.hero p{max-width:760px}
+    .top-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
 
-.btn{
-display:inline-block;
-padding:14px 22px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-margin-right:10px
-}
+    select{
+      border:1px solid rgba(255,255,255,0.16);
+      background:#fff;
+      color:var(--dark);
+      border-radius:10px;
+      padding:10px 12px;
+      font-size:14px;
+      outline:none;
+      cursor:pointer;
+    }
 
-.btn-primary{
-background:var(--accent);
-color:white
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:13px 20px;
+      border-radius:12px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      transition:0.25s ease;
+    }
 
-.btn-secondary{
-border:1px solid rgba(255,255,255,0.4);
-color:white
-}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:var(--accent);
+      color:white;
+      box-shadow:0 10px 24px rgba(255,138,61,0.28);
+    }
+    .btn-secondary{
+      background:white;
+      color:var(--dark);
+      border:1px solid var(--border);
+    }
 
-.section{
-padding:60px 0
-}
+    .hero{
+      background:
+        radial-gradient(circle at top right, rgba(0,166,166,0.35), transparent 28%),
+        radial-gradient(circle at left center, rgba(255,138,61,0.18), transparent 22%),
+        linear-gradient(135deg, #0f2235 0%, #16324c 45%, #0b7f7f 100%);
+      color:white;
+      padding:72px 0 60px;
+      overflow:hidden;
+      position:relative;
+    }
 
-.section h2{
-margin-top:0;
-font-size:30px;
-color:var(--dark)
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr 0.9fr;
+      gap:32px;
+      align-items:center;
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px
-}
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.12);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.2px;
+      margin-bottom:14px;
+    }
 
-.card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:16px;
-padding:24px
-}
+    .hero h1{
+      margin:0 0 16px;
+      font-size:48px;
+      line-height:1.1;
+      letter-spacing:-0.8px;
+    }
 
-.table-wrap{
-background:white;
-border-radius:16px;
-border:1px solid var(--border);
-overflow:hidden
-}
+    .hero p{
+      margin:0 0 22px;
+      font-size:18px;
+      color:rgba(255,255,255,0.9);
+      max-width:760px;
+    }
 
-table{
-width:100%;
-border-collapse:collapse
-}
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:22px 0 28px;
+    }
 
-th,td{
-padding:16px;
-border-bottom:1px solid var(--border);
-text-align:left
-}
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
 
-th{
-background:#17324d;
-color:white
-}
+    .stat{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:16px;
+      padding:18px;
+    }
 
-.note{
-font-size:14px;
-color:var(--muted);
-margin-top:10px
-}
+    .stat .num{
+      font-size:28px;
+      font-weight:800;
+      color:white;
+      margin-bottom:4px;
+    }
 
-.calc-box{
-background:white;
-border:1px solid var(--border);
-border-radius:16px;
-padding:24px;
-max-width:500px
-}
+    .stat .label{
+      font-size:13px;
+      color:rgba(255,255,255,0.78);
+    }
 
-input{
-width:100%;
-padding:10px;
-margin-bottom:10px;
-border-radius:6px;
-border:1px solid #ccc
-}
+    .hero-card{
+      background:rgba(255,255,255,0.95);
+      color:var(--text);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
 
-.footer{
-background:#0f2235;
-color:white;
-text-align:center;
-padding:40px 0;
-margin-top:40px
-}
+    .hero-card h3{
+      margin:0 0 12px;
+      color:var(--dark);
+      font-size:24px;
+    }
 
-@media(max-width:900px){
-.cards{grid-template-columns:1fr}
-}
+    .hero-card p{
+      color:var(--muted);
+      font-size:15px;
+      margin:0 0 18px;
+    }
 
-</style>
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .mini-item{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:14px;
+      padding:14px;
+    }
+
+    .mini-item strong{
+      display:block;
+      font-size:20px;
+      color:var(--dark);
+      margin-bottom:4px;
+    }
+
+    .mini-item span{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .section{
+      padding:68px 0;
+    }
+
+    .section-alt{
+      background:#edf3f8;
+      border-top:1px solid #e6eef5;
+      border-bottom:1px solid #e6eef5;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:20px;
+      margin-bottom:26px;
+      flex-wrap:wrap;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:34px;
+      line-height:1.15;
+      color:var(--dark);
+    }
+
+    .section-head p{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+    }
+
+    .cards-3,
+    .cards-4{
+      display:grid;
+      gap:20px;
+    }
+
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .cards-4{grid-template-columns:repeat(4,1fr)}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 8px 22px rgba(15,34,53,0.05);
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:22px;
+      color:var(--dark);
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, rgba(0,166,166,0.14), rgba(255,138,61,0.16));
+      color:var(--dark);
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .table-wrap{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:20px;
+      overflow:auto;
+      box-shadow:0 10px 24px rgba(15,34,53,0.05);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:880px;
+    }
+
+    th, td{
+      text-align:left;
+      padding:16px 16px;
+      border-bottom:1px solid #edf1f5;
+      font-size:15px;
+      vertical-align:top;
+    }
+
+    th{
+      background:var(--dark);
+      color:white;
+      font-size:14px;
+      letter-spacing:0.2px;
+    }
+
+    tr:last-child td{border-bottom:none}
+
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      background:#edf8f8;
+      color:var(--primary-dark);
+      border:1px solid #cdecec;
+    }
+
+    .subtle{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .diagram{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:0 10px 24px rgba(15,34,53,0.05);
+    }
+
+    .diagram h3{
+      margin:0 0 16px;
+      color:var(--dark);
+      font-size:24px;
+    }
+
+    .flow{
+      display:grid;
+      gap:14px;
+    }
+
+    .flow-row{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      align-items:center;
+    }
+
+    .flow-box{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:16px;
+      padding:18px;
+      min-height:98px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .flow-box strong{
+      display:block;
+      font-size:16px;
+      margin-bottom:4px;
+      color:var(--dark);
+    }
+
+    .flow-arrow{
+      text-align:center;
+      color:var(--muted);
+      font-weight:700;
+      font-size:20px;
+    }
+
+    .note{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:#fff6ef;
+      border:1px solid #ffe1ca;
+      color:#7a4a1f;
+      font-size:14px;
+    }
+
+    .chart{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:0 10px 24px rgba(15,34,53,0.05);
+    }
+
+    .chart h3{
+      margin:0 0 10px;
+      color:var(--dark);
+      font-size:24px;
+    }
+
+    .bars{
+      display:grid;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .bar-item .meta{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:6px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .bar-track{
+      width:100%;
+      height:14px;
+      background:#e8eef4;
+      border-radius:999px;
+      overflow:hidden;
+    }
+
+    .bar-fill{
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    .calc-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .calc-box,
+    .result-box{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:0 10px 24px rgba(15,34,53,0.05);
+    }
+
+    .calc-box h3,
+    .result-box h3{
+      margin:0 0 16px;
+      color:var(--dark);
+      font-size:24px;
+    }
+
+    label{
+      display:block;
+      font-weight:700;
+      margin:0 0 8px;
+      color:var(--dark);
+      font-size:14px;
+    }
+
+    input{
+      width:100%;
+      padding:13px 14px;
+      margin-bottom:14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      outline:none;
+      font-size:15px;
+      color:var(--text);
+      background:#fff;
+    }
+
+    input:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 4px rgba(0,166,166,0.08);
+    }
+
+    .result-list{
+      display:grid;
+      gap:14px;
+      margin-top:12px;
+    }
+
+    .result-item{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px;
+      background:#fbfdff;
+    }
+
+    .result-item span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:4px;
+    }
+
+    .result-item strong{
+      font-size:28px;
+      color:var(--dark);
+      line-height:1.1;
+    }
+
+    .example-box{
+      margin-top:18px;
+      border-top:1px dashed var(--border);
+      padding-top:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .highlight{
+      background:linear-gradient(135deg, #ffffff, #f9fcff);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:0 8px 20px rgba(15,34,53,0.04);
+    }
+
+    .highlight h3{
+      margin:0 0 10px;
+      font-size:22px;
+      color:var(--dark);
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .cta{
+      background:linear-gradient(135deg, #0f2235 0%, #17324d 55%, #0b7f7f 100%);
+      color:white;
+      padding:72px 0;
+    }
+
+    .cta-box{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .cta h2{
+      margin:0 0 12px;
+      font-size:38px;
+      line-height:1.15;
+    }
+
+    .cta p{
+      margin:0;
+      color:rgba(255,255,255,0.86);
+      font-size:17px;
+      max-width:760px;
+    }
+
+    .cta-card{
+      background:rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:22px;
+      padding:24px;
+    }
+
+    .footer{
+      background:#0c1b2b;
+      color:rgba(255,255,255,0.72);
+      padding:24px 0;
+      font-size:14px;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .lang{display:none}
+    .lang.active{display:block}
+
+    @media (max-width: 1100px){
+      .hero-grid,
+      .split,
+      .calc-grid,
+      .cta-box,
+      .two-col{
+        grid-template-columns:1fr;
+      }
+
+      .cards-4{grid-template-columns:repeat(2,1fr)}
+      .cards-3{grid-template-columns:1fr}
+      .hero-stats{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 760px){
+      .hero h1{font-size:38px}
+      .section-head h2{font-size:28px}
+      .cta h2{font-size:30px}
+      .cards-4{grid-template-columns:1fr}
+      .flow-row{grid-template-columns:1fr}
+      .topbar-inner{align-items:flex-start}
+    }
+  </style>
 </head>
-
 <body>
-
-
-<section class="hero">
-<div class="container">
-
-<h1>PestView Distributor Partner Program</h1>
-
-<p>
-Join the PestView ecosystem as a distributor and gain access to a new digital sales channel for pest control companies worldwide.
-</p>
-
-<a class="btn btn-primary" href="#model">Distributor Model</a>
-<a class="btn btn-secondary" href="#contact">Contact</a>
-
-</div>
-</section>
-
-
-<section class="section">
-<div class="container">
-
-<h2>Global Pest Control Market</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>€25B+ Global Market</h3>
-<p>The global pest control industry exceeds €25 billion annually and continues to grow.</p>
-</div>
-
-<div class="card">
-<h3>Digital Transformation</h3>
-<p>Only a small percentage of pest control companies currently use modern SaaS platforms.</p>
-</div>
-
-<div class="card">
-<h3>IoT & Smart Monitoring</h3>
-<p>IoT traps, sensors and smart monitoring systems are rapidly transforming the industry.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<section class="section">
-<div class="container">
-
-<h2>PestView Ecosystem</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Pest Control Companies</h3>
-<p>Use PestView to manage pest monitoring, service visits and digital compliance.</p>
-</div>
-
-<div class="card">
-<h3>Devices & Sensors</h3>
-<p>Integration with traps, IoT sensors, smart cameras and monitoring devices.</p>
-</div>
-
-<div class="card">
-<h3>Industrial Clients</h3>
-<p>Food industries and facilities use PestView for digital pest management documentation.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<section class="section" id="model">
-<div class="container">
-
-<h2>Distributor Investment & Recovery Model</h2>
-
-<div class="table-wrap">
-
-<table>
-
-<thead>
-<tr>
-<th>Partner Level</th>
-<th>Investment</th>
-<th>Recovery Model</th>
-<th>Year 1 Commission</th>
-<th>Year 2 Commission</th>
-<th>Year 3+ Commission</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>Associate Distributor</td>
-<td>€15,000</td>
-<td>100% subscription revenue until recovery</td>
-<td>20%</td>
-<td>15%</td>
-<td>10%</td>
-</tr>
-
-<tr>
-<td>Strategic Distributor</td>
-<td>€30,000</td>
-<td>100% subscription revenue until recovery</td>
-<td>24%</td>
-<td>18%</td>
-<td>12%</td>
-</tr>
-
-<tr>
-<td>Lead Distributor</td>
-<td>€50,000</td>
-<td>100% subscription revenue until recovery</td>
-<td>27%</td>
-<td>20%</td>
-<td>15%</td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<p class="note">
-Recovery applies only to new subscriptions.
-</p>
-
-</div>
-</section>
-
-
-<section class="section">
-<div class="container">
-
-<h2>Equity Participation</h2>
-
-<p>
-Strategic partners may participate in the growth of PestView based on a company valuation of <strong>€4,000,000</strong>.
-</p>
-
-<div class="table-wrap">
-
-<table>
-
-<thead>
-<tr>
-<th>Distributor Level</th>
-<th>Investment</th>
-<th>Equity</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>Associate Distributor</td>
-<td>€15,000</td>
-<td>0.375%</td>
-</tr>
-
-<tr>
-<td>Strategic Distributor</td>
-<td>€30,000</td>
-<td>0.75%</td>
-</tr>
-
-<tr>
-<td>Lead Distributor</td>
-<td>€50,000</td>
-<td>1.25%</td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-</section>
-
-
-<section class="section">
-<div class="container">
-
-<h2>Distributor Upgrade Path</h2>
-
-<div class="table-wrap">
-
-<table>
-
-<thead>
-<tr>
-<th>Current Level</th>
-<th>Upgrade To</th>
-<th>Additional Investment</th>
-<th>New Commission</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td>Associate Distributor</td>
-<td>Strategic Distributor</td>
-<td>+ €15,000</td>
-<td>24%</td>
-</tr>
-
-<tr>
-<td>Strategic Distributor</td>
-<td>Lead Distributor</td>
-<td>+ €20,000</td>
-<td>27%</td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-</section>
-
-
-<section class="section">
-<div class="container">
-
-<h2>Distributor ROI Calculator</h2>
-
-<div class="calc-box">
-
-<label>Investment (€)</label>
-<input id="investment" type="number" value="30000">
-
-<label>Subscription Price (€)</label>
-<input id="subscription" type="number" value="2500">
-
-<label>Subscriptions per Month</label>
-<input id="monthly" type="number" value="2">
-
-<button class="btn btn-primary" onclick="calculateROI()">Calculate</button>
-
-<p><strong>Subscriptions needed:</strong> <span id="subsNeeded"></span></p>
-<p><strong>Months to recover:</strong> <span id="monthsNeeded"></span></p>
-
-</div>
-
-</div>
-</section>
-
-
-<script>
-
-function calculateROI(){
-
-let investment = parseFloat(document.getElementById("investment").value);
-let subscription = parseFloat(document.getElementById("subscription").value);
-let monthly = parseFloat(document.getElementById("monthly").value);
-
-let subsNeeded = Math.ceil(investment/subscription);
-let monthsNeeded = Math.ceil(subsNeeded/monthly);
-
-document.getElementById("subsNeeded").innerText = subsNeeded;
-document.getElementById("monthsNeeded").innerText = monthsNeeded + " months";
-
-}
-
-</script>
-
-
-<section class="section" id="contact">
-<div class="container">
-
-<h2>Become a PestView Distributor Partner</h2>
-
-<p>
-We are currently onboarding distributors interested in developing new digital sales channels.
-</p>
-
-<a class="btn btn-primary" href="mailto:info@pestview.io">Contact</a>
-
-</div>
-</section>
-
-
-<div class="footer">
-PestView Distributor Partner Program
-</div>
-
-
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-badge">PV</div>
+        <div>PestView Distributor Program</div>
+      </div>
+      <div class="top-actions">
+        <select id="languageSwitcher" onchange="setLang(this.value)">
+          <option value="en">English</option>
+          <option value="el">Ελληνικά</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+        </select>
+        <a href="#contact" class="btn btn-primary lang lang-en active">Become a Distributor</a>
+        <a href="#contact" class="btn btn-primary lang lang-el">Γίνετε Distributor</a>
+        <a href="#contact" class="btn btn-primary lang lang-es">Conviértase en Distribuidor</a>
+        <a href="#contact" class="btn btn-primary lang lang-fr">Devenir Distributeur</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="lang lang-en active">
+          <div class="eyebrow">Global pest control software opportunity</div>
+          <h1>Build recurring revenue with the PestView Distributor Partner Program</h1>
+          <p>
+            PestView helps distributors enter the digital transformation of pest control with a modern SaaS + IoT platform, a scalable recurring revenue model, upgrade options, and potential equity exposure based on a company valuation of €4,000,000.
+          </p>
+        </div>
+
+        <div class="lang lang-el">
+          <div class="eyebrow">Ευκαιρία στο λογισμικό pest control παγκοσμίως</div>
+          <h1>Χτίστε επαναλαμβανόμενα έσοδα με το πρόγραμμα Distributor Partners της PestView</h1>
+          <p>
+            Το PestView δίνει τη δυνατότητα στους distributors να μπουν στον ψηφιακό μετασχηματισμό του pest control με σύγχρονη πλατφόρμα SaaS + IoT, κλιμακούμενο μοντέλο επαναλαμβανόμενων εσόδων, δυνατότητες αναβάθμισης και προαιρετική συμμετοχή μέσω stock options με βάση αποτίμηση εταιρείας €4.000.000.
+          </p>
+        </div>
+
+        <div class="lang lang-es">
+          <div class="eyebrow">Oportunidad global en software de control de plagas</div>
+          <h1>Construya ingresos recurrentes con el programa de distribuidores de PestView</h1>
+          <p>
+            PestView permite a los distribuidores entrar en la transformación digital del control de plagas con una plataforma moderna SaaS + IoT, un modelo escalable de ingresos recurrentes, opciones de upgrade y exposición potencial a equity basada en una valoración de €4.000.000.
+          </p>
+        </div>
+
+        <div class="lang lang-fr">
+          <div class="eyebrow">Opportunité mondiale dans le logiciel de lutte antiparasitaire</div>
+          <h1>Créez des revenus récurrents avec le programme distributeur PestView</h1>
+          <p>
+            PestView permet aux distributeurs d'entrer dans la transformation numérique du pest control avec une plateforme SaaS + IoT moderne, un modèle de revenus récurrents évolutif, des options d'upgrade et une exposition éventuelle au capital basée sur une valorisation de €4.000.000.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#calculator" class="btn btn-primary lang lang-en active">Calculate ROI</a>
+          <a href="#calculator" class="btn btn-primary lang lang-el">Υπολογισμός ROI</a>
+          <a href="#calculator" class="btn btn-primary lang lang-es">Calcular ROI</a>
+          <a href="#calculator" class="btn btn-primary lang lang-fr">Calculer le ROI</a>
+
+          <a href="#model" class="btn btn-secondary lang lang-en active">View investment model</a>
+          <a href="#model" class="btn btn-secondary lang lang-el">Δείτε το επενδυτικό μοντέλο</a>
+          <a href="#model" class="btn btn-secondary lang lang-es">Ver modelo de inversión</a>
+          <a href="#model" class="btn btn-secondary lang lang-fr">Voir le modèle d'investissement</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="num">€4M</div>
+            <div class="label lang lang-en active">Current valuation reference</div>
+            <div class="label lang lang-el">Τρέχουσα βάση αποτίμησης</div>
+            <div class="label lang lang-es">Referencia actual de valoración</div>
+            <div class="label lang lang-fr">Référence actuelle de valorisation</div>
+          </div>
+          <div class="stat">
+            <div class="num">100%</div>
+            <div class="label lang lang-en active">Subscription recovery until investment payback</div>
+            <div class="label lang lang-el">Ανάκτηση μέσω συνδρομών έως την αποπληρωμή της επένδυσης</div>
+            <div class="label lang lang-es">Recuperación vía suscripciones hasta el retorno de la inversión</div>
+            <div class="label lang lang-fr">Récupération via abonnements jusqu'au remboursement de l'investissement</div>
+          </div>
+          <div class="stat">
+            <div class="num">3</div>
+            <div class="label lang lang-en active">Distributor levels with upgrade path</div>
+            <div class="label lang lang-el">Επίπεδα συνεργασίας με δυνατότητα αναβάθμισης</div>
+            <div class="label lang lang-es">Niveles de distribuidor con ruta de upgrade</div>
+            <div class="label lang lang-fr">Niveaux distributeur avec parcours d'upgrade</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="lang lang-en active">
+          <h3>Partner snapshot</h3>
+          <p>Designed for distributors that want software revenue, recurring commissions, and a long-term strategic position in a fast-modernizing industry.</p>
+        </div>
+        <div class="lang lang-el">
+          <h3>Σύνοψη συνεργασίας</h3>
+          <p>Σχεδιασμένο για distributors που θέλουν έσοδα από software, επαναλαμβανόμενες προμήθειες και μακροπρόθεσμη στρατηγική θέση σε έναν κλάδο που εκσυγχρονίζεται γρήγορα.</p>
+        </div>
+        <div class="lang lang-es">
+          <h3>Resumen del partner</h3>
+          <p>Diseñado para distribuidores que buscan ingresos por software, comisiones recurrentes y una posición estratégica a largo plazo en una industria que se moderniza rápidamente.</p>
+        </div>
+        <div class="lang lang-fr">
+          <h3>Vue d'ensemble du partenaire</h3>
+          <p>Conçu pour les distributeurs qui veulent des revenus logiciels, des commissions récurrentes et une position stratégique à long terme dans un secteur en forte modernisation.</p>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini-item">
+            <strong>SaaS</strong>
+            <span class="lang lang-en active">Software subscriptions</span>
+            <span class="lang lang-el">Συνδρομές λογισμικού</span>
+            <span class="lang lang-es">Suscripciones de software</span>
+            <span class="lang lang-fr">Abonnements logiciels</span>
+          </div>
+          <div class="mini-item">
+            <strong>IoT</strong>
+            <span class="lang lang-en active">Smart monitoring growth</span>
+            <span class="lang lang-el">Ανάπτυξη smart monitoring</span>
+            <span class="lang lang-es">Crecimiento del monitoreo inteligente</span>
+            <span class="lang lang-fr">Croissance du monitoring intelligent</span>
+          </div>
+          <div class="mini-item">
+            <strong>ROI</strong>
+            <span class="lang lang-en active">Fast recovery mechanics</span>
+            <span class="lang lang-el">Γρήγορος μηχανισμός ανάκτησης</span>
+            <span class="lang lang-es">Mecánica de recuperación rápida</span>
+            <span class="lang lang-fr">Mécanique de récupération rapide</span>
+          </div>
+          <div class="mini-item">
+            <strong>Equity</strong>
+            <span class="lang lang-en active">Optional stock options</span>
+            <span class="lang lang-el">Προαιρετικά stock options</span>
+            <span class="lang lang-es">Stock options opcionales</span>
+            <span class="lang lang-fr">Stock options optionnelles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="lang lang-en active">
+            <h2>Why this opportunity exists</h2>
+            <p>The pest control market is large, recurring, compliance-driven, and still underserved by modern software infrastructure.</p>
+          </div>
+          <div class="lang lang-el">
+            <h2>Γιατί υπάρχει αυτή η ευκαιρία</h2>
+            <p>Η αγορά του pest control είναι μεγάλη, επαναλαμβανόμενη, driven από compliance απαιτήσεις και ακόμη υποεξυπηρετούμενη από σύγχρονο λογισμικό.</p>
+          </div>
+          <div class="lang lang-es">
+            <h2>Por qué existe esta oportunidad</h2>
+            <p>El mercado del control de plagas es grande, recurrente, impulsado por compliance y todavía poco cubierto por infraestructura de software moderna.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2>Pourquoi cette opportunité existe</h2>
+            <p>Le marché du pest control est vaste, récurrent, orienté conformité, et encore insuffisamment servi par des logiciels modernes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <div class="card">
+          <div class="icon">01</div>
+          <div class="lang lang-en active">
+            <h3>Large global market</h3>
+            <p>Distributors operate in an industry with continuous demand from food production, retail, logistics, hospitality, healthcare, and residential services.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Μεγάλη παγκόσμια αγορά</h3>
+            <p>Οι distributors δραστηριοποιούνται σε έναν κλάδο με συνεχή ζήτηση από βιομηχανία τροφίμων, λιανική, logistics, φιλοξενία, υγεία και οικιακές υπηρεσίες.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Gran mercado global</h3>
+            <p>Los distribuidores operan en una industria con demanda continua de producción alimentaria, retail, logística, hostelería, salud y servicios residenciales.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Grand marché mondial</h3>
+            <p>Les distributeurs opèrent dans un secteur à demande continue provenant de l'agroalimentaire, du retail, de la logistique, de l'hôtellerie, de la santé et du résidentiel.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">02</div>
+          <div class="lang lang-en active">
+            <h3>Digital transformation gap</h3>
+            <p>Many pest control businesses still rely on outdated systems, fragmented spreadsheets, paper records, or old-generation software with limited modern reporting and IoT capabilities.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Κενό ψηφιακού μετασχηματισμού</h3>
+            <p>Πολλές εταιρείες pest control βασίζονται ακόμη σε παλιά συστήματα, αποσπασματικά spreadsheets, χαρτί ή λογισμικό προηγούμενης γενιάς με περιορισμένα reports και IoT δυνατότητες.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Brecha de transformación digital</h3>
+            <p>Muchas empresas de control de plagas aún dependen de sistemas antiguos, hojas de cálculo fragmentadas, papel o software heredado con reporting e IoT limitados.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Écart de transformation numérique</h3>
+            <p>De nombreuses sociétés de pest control utilisent encore des systèmes anciens, des feuilles de calcul dispersées, du papier ou des logiciels hérités avec peu de reporting moderne et peu d'IoT.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">03</div>
+          <div class="lang lang-en active">
+            <h3>IoT and smart monitoring expansion</h3>
+            <p>Smart traps, sensors, cameras, and compliance reporting are reshaping how pest monitoring is sold, delivered, and monetized.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Ανάπτυξη IoT και smart monitoring</h3>
+            <p>Οι έξυπνες παγίδες, οι αισθητήρες, οι κάμερες και τα compliance reports αλλάζουν τον τρόπο που πωλείται, παρέχεται και τιμολογείται η παρακολούθηση pest control.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Expansión de IoT y smart monitoring</h3>
+            <p>Las trampas inteligentes, sensores, cámaras y reportes de compliance están transformando la forma de vender, operar y monetizar el monitoreo de plagas.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Expansion de l'IoT et du monitoring intelligent</h3>
+            <p>Les pièges intelligents, capteurs, caméras et rapports de conformité transforment la façon dont le monitoring antiparasitaire est vendu, délivré et monétisé.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="model">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="lang lang-en active">
+            <h2>Distributor investment model</h2>
+            <p>Three partner levels, structured recurring commissions, and 100% subscription recovery until the initial investment amount is recovered.</p>
+          </div>
+          <div class="lang lang-el">
+            <h2>Επενδυτικό μοντέλο distributor</h2>
+            <p>Τρία επίπεδα συνεργασίας, δομημένες επαναλαμβανόμενες προμήθειες και 100% ανάκτηση μέσω συνδρομών μέχρι να καλυφθεί το αρχικό ποσό επένδυσης.</p>
+          </div>
+          <div class="lang lang-es">
+            <h2>Modelo de inversión para distribuidores</h2>
+            <p>Tres niveles de partner, comisiones recurrentes estructuradas y recuperación del 100% vía suscripciones hasta recuperar la inversión inicial.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2>Modèle d'investissement distributeur</h2>
+            <p>Trois niveaux de partenariat, commissions récurrentes structurées, et récupération à 100% via abonnements jusqu'au remboursement de l'investissement initial.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th class="lang lang-en active">Level</th>
+              <th class="lang lang-el">Επίπεδο</th>
+              <th class="lang lang-es">Nivel</th>
+              <th class="lang lang-fr">Niveau</th>
+
+              <th class="lang lang-en active">Investment</th>
+              <th class="lang lang-el">Επένδυση</th>
+              <th class="lang lang-es">Inversión</th>
+              <th class="lang lang-fr">Investissement</th>
+
+              <th class="lang lang-en active">Recovery model</th>
+              <th class="lang lang-el">Μοντέλο ανάκτησης</th>
+              <th class="lang lang-es">Modelo de recuperación</th>
+              <th class="lang lang-fr">Modèle de récupération</th>
+
+              <th class="lang lang-en active">Year 1</th>
+              <th class="lang lang-el">1ο έτος</th>
+              <th class="lang lang-es">Año 1</th>
+              <th class="lang lang-fr">Année 1</th>
+
+              <th class="lang lang-en active">Year 2</th>
+              <th class="lang lang-el">2ο έτος</th>
+              <th class="lang lang-es">Año 2</th>
+              <th class="lang lang-fr">Année 2</th>
+
+              <th class="lang lang-en active">Year 3+</th>
+              <th class="lang lang-el">3ο έτος+</th>
+              <th class="lang lang-es">Año 3+</th>
+              <th class="lang lang-fr">Année 3+</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge">Associate</span></td>
+              <td>€15,000</td>
+              <td class="lang lang-en active">100% subscription revenue until full recovery</td>
+              <td class="lang lang-el">100% έσοδα συνδρομών μέχρι πλήρη ανάκτηση</td>
+              <td class="lang lang-es">100% de ingresos por suscripción hasta recuperación total</td>
+              <td class="lang lang-fr">100% des revenus d'abonnement jusqu'au remboursement complet</td>
+              <td>20%</td>
+              <td>15%</td>
+              <td>10%</td>
+            </tr>
+            <tr>
+              <td><span class="badge">Strategic</span></td>
+              <td>€30,000</td>
+              <td class="lang lang-en active">100% subscription revenue until full recovery</td>
+              <td class="lang lang-el">100% έσοδα συνδρομών μέχρι πλήρη ανάκτηση</td>
+              <td class="lang lang-es">100% de ingresos por suscripción hasta recuperación total</td>
+              <td class="lang lang-fr">100% des revenus d'abonnement jusqu'au remboursement complet</td>
+              <td>24%</td>
+              <td>18%</td>
+              <td>12%</td>
+            </tr>
+            <tr>
+              <td><span class="badge">Lead</span></td>
+              <td>€50,000</td>
+              <td class="lang lang-en active">100% subscription revenue until full recovery</td>
+              <td class="lang lang-el">100% έσοδα συνδρομών μέχρι πλήρη ανάκτηση</td>
+              <td class="lang lang-es">100% de ingresos por suscripción hasta recuperación total</td>
+              <td class="lang lang-fr">100% des revenus d'abonnement jusqu'au remboursement complet</td>
+              <td>27%</td>
+              <td>20%</td>
+              <td>15%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <div class="lang lang-en active">
+          <strong>Commission reduction logic:</strong> higher commissions apply during the early phase to accelerate partner motivation and market entry, then normalize in Year 2 and Year 3+ as the installed customer base grows and recurring revenue compounds.
+        </div>
+        <div class="lang lang-el">
+          <strong>Λογική μείωσης προμηθειών:</strong> οι υψηλότερες προμήθειες εφαρμόζονται στην αρχική φάση για να επιταχύνουν την κινητοποίηση του partner και την είσοδο στην αγορά, και στη συνέχεια ομαλοποιούνται στο 2ο και 3ο έτος καθώς αυξάνεται η εγκατεστημένη βάση πελατών και πολλαπλασιάζονται τα recurring revenues.
+        </div>
+        <div class="lang lang-es">
+          <strong>Lógica de reducción de comisiones:</strong> las comisiones más altas se aplican en la fase inicial para acelerar la activación del partner y la entrada al mercado, y luego se normalizan en el Año 2 y Año 3+ a medida que crece la base instalada y se acumulan los ingresos recurrentes.
+        </div>
+        <div class="lang lang-fr">
+          <strong>Logique de réduction des commissions :</strong> des commissions plus élevées s'appliquent au démarrage afin d'accélérer l'activation du partenaire et l'entrée sur le marché, puis elles se normalisent en Année 2 et Année 3+ à mesure que la base installée augmente et que les revenus récurrents se composent.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="diagram">
+        <div class="lang lang-en active">
+          <h3>100% subscription recovery model</h3>
+        </div>
+        <div class="lang lang-el">
+          <h3>Μοντέλο 100% subscription recovery</h3>
+        </div>
+        <div class="lang lang-es">
+          <h3>Modelo de recuperación del 100% vía suscripción</h3>
+        </div>
+        <div class="lang lang-fr">
+          <h3>Modèle de récupération à 100% via abonnements</h3>
+        </div>
+
+        <div class="flow">
+          <div class="flow-row">
+            <div class="flow-box">
+              <strong class="lang lang-en active">1. Initial investment</strong>
+              <strong class="lang lang-el">1. Αρχική επένδυση</strong>
+              <strong class="lang lang-es">1. Inversión inicial</strong>
+              <strong class="lang lang-fr">1. Investissement initial</strong>
+
+              <span class="subtle lang lang-en active">Distributor enters program at Associate, Strategic, or Lead level.</span>
+              <span class="subtle lang lang-el">Ο distributor εισέρχεται στο πρόγραμμα ως Associate, Strategic ή Lead.</span>
+              <span class="subtle lang lang-es">El distribuidor entra al programa como Associate, Strategic o Lead.</span>
+              <span class="subtle lang lang-fr">Le distributeur rejoint le programme au niveau Associate, Strategic ou Lead.</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+              <strong class="lang lang-en active">2. Sell subscriptions</strong>
+              <strong class="lang lang-el">2. Πώληση συνδρομών</strong>
+              <strong class="lang lang-es">2. Venta de suscripciones</strong>
+              <strong class="lang lang-fr">2. Vente d'abonnements</strong>
+
+              <span class="subtle lang lang-en active">Recurring subscription revenue is generated from PestView customers sold by the distributor.</span>
+              <span class="subtle lang lang-el">Δημιουργούνται recurring subscription revenues από πελάτες PestView που πωλήθηκαν από τον distributor.</span>
+              <span class="subtle lang lang-es">Se generan ingresos recurrentes por suscripciones de clientes PestView vendidos por el distribuidor.</span>
+              <span class="subtle lang lang-fr">Des revenus récurrents d'abonnements sont générés par les clients PestView apportés par le distributeur.</span>
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-box">
+              <strong class="lang lang-en active">3. Recover investment first</strong>
+              <strong class="lang lang-el">3. Πρώτα ανακτάται η επένδυση</strong>
+              <strong class="lang lang-es">3. Primero se recupera la inversión</strong>
+              <strong class="lang lang-fr">3. L'investissement est d'abord récupéré</strong>
+
+              <span class="subtle lang lang-en active">100% of eligible subscription revenue is allocated until the initial investment amount is fully recovered.</span>
+              <span class="subtle lang lang-el">Το 100% των επιλέξιμων εσόδων συνδρομών κατευθύνεται μέχρι να ανακτηθεί πλήρως το αρχικό ποσό επένδυσης.</span>
+              <span class="subtle lang lang-es">El 100% de los ingresos elegibles por suscripción se asigna hasta recuperar por completo la inversión inicial.</span>
+              <span class="subtle lang lang-fr">100% des revenus d'abonnement éligibles est alloué jusqu'au remboursement complet de l'investissement initial.</span>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-box">
+              <strong class="lang lang-en active">4. Ongoing commission model</strong>
+              <strong class="lang lang-el">4. Συνεχιζόμενο μοντέλο προμηθειών</strong>
+              <strong class="lang lang-es">4. Modelo continuo de comisiones</strong>
+              <strong class="lang lang-fr">4. Modèle de commissions continu</strong>
+
+              <span class="subtle lang lang-en active">After recovery, the distributor continues earning recurring commissions based on the level and year.</span>
+              <span class="subtle lang lang-el">Μετά την ανάκτηση, ο distributor συνεχίζει να λαμβάνει recurring commissions ανάλογα με το επίπεδο και το έτος.</span>
+              <span class="subtle lang lang-es">Después de la recuperación, el distribuidor sigue obteniendo comisiones recurrentes según el nivel y el año.</span>
+              <span class="subtle lang lang-fr">Après récupération, le distributeur continue à percevoir des commissions récurrentes selon le niveau et l'année.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <div class="lang lang-en active">
+            This structure is designed to reduce downside risk for distributors while preserving long-term upside from recurring software sales.
+          </div>
+          <div class="lang lang-el">
+            Αυτή η δομή έχει σχεδιαστεί ώστε να μειώνει το ρίσκο για τους distributors, διατηρώντας παράλληλα σημαντικό μακροπρόθεσμο όφελος από recurring software sales.
+          </div>
+          <div class="lang lang-es">
+            Esta estructura está diseñada para reducir el riesgo del distribuidor, manteniendo al mismo tiempo un atractivo upside a largo plazo por ventas recurrentes de software.
+          </div>
+          <div class="lang lang-fr">
+            Cette structure vise à réduire le risque pour les distributeurs tout en préservant un potentiel important à long terme grâce aux ventes récurrentes de logiciel.
+          </div>
+        </div>
+      </div>
+
+      <div class="chart">
+        <div class="lang lang-en active">
+          <h3>Illustrative opportunity map</h3>
+          <p class="subtle">Example visual positioning of key value drivers for distributors.</p>
+        </div>
+        <div class="lang lang-el">
+          <h3>Ενδεικτικός χάρτης ευκαιρίας</h3>
+          <p class="subtle">Οπτική αποτύπωση των βασικών παραγόντων αξίας για τους distributors.</p>
+        </div>
+        <div class="lang lang-es">
+          <h3>Mapa ilustrativo de oportunidad</h3>
+          <p class="subtle">Visualización ejemplo de los principales impulsores de valor para distribuidores.</p>
+        </div>
+        <div class="lang lang-fr">
+          <h3>Carte illustrative de l'opportunité</h3>
+          <p class="subtle">Positionnement visuel des principaux moteurs de valeur pour les distributeurs.</p>
+        </div>
+
+        <div class="bars">
+          <div class="bar-item">
+            <div class="meta">
+              <span class="lang lang-en active">Recurring revenue potential</span>
+              <span class="lang lang-el">Δυναμικό recurring revenue</span>
+              <span class="lang lang-es">Potencial de ingresos recurrentes</span>
+              <span class="lang lang-fr">Potentiel de revenus récurrents</span>
+              <strong>92%</strong>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+          </div>
+
+          <div class="bar-item">
+            <div class="meta">
+              <span class="lang lang-en active">Market modernization need</span>
+              <span class="lang lang-el">Ανάγκη εκσυγχρονισμού αγοράς</span>
+              <span class="lang lang-es">Necesidad de modernización del mercado</span>
+              <span class="lang lang-fr">Besoin de modernisation du marché</span>
+              <strong>88%</strong>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+          </div>
+
+          <div class="bar-item">
+            <div class="meta">
+              <span class="lang lang-en active">IoT growth relevance</span>
+              <span class="lang lang-el">Σημασία ανάπτυξης IoT</span>
+              <span class="lang lang-es">Relevancia del crecimiento IoT</span>
+              <span class="lang lang-fr">Pertinence de la croissance IoT</span>
+              <strong>83%</strong>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:83%"></div></div>
+          </div>
+
+          <div class="bar-item">
+            <div class="meta">
+              <span class="lang lang-en active">Long-term strategic upside</span>
+              <span class="lang lang-el">Μακροπρόθεσμο στρατηγικό όφελος</span>
+              <span class="lang lang-es">Upside estratégico a largo plazo</span>
+              <span class="lang lang-fr">Potentiel stratégique long terme</span>
+              <strong>86%</strong>
+            </div>
+            <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="equity">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="lang lang-en active">
+            <h2>Optional stock options at €4M valuation</h2>
+            <p>Partners may also participate through an optional stock option structure, aligned with a valuation reference of €4,000,000.</p>
+          </div>
+          <div class="lang lang-el">
+            <h2>Προαιρετικά stock options με αποτίμηση €4M</h2>
+            <p>Οι συνεργάτες μπορούν προαιρετικά να συμμετέχουν και μέσω stock options, με βάση αποτίμηση €4.000.000.</p>
+          </div>
+          <div class="lang lang-es">
+            <h2>Stock options opcionales con valoración de €4M</h2>
+            <p>Los partners también pueden participar mediante una estructura opcional de stock options alineada con una valoración de €4.000.000.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2>Stock options optionnelles sur une valorisation de €4M</h2>
+            <p>Les partenaires peuvent également participer via une structure optionnelle de stock options, alignée sur une valorisation de €4.000.000.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th class="lang lang-en active">Investment</th>
+              <th class="lang lang-el">Επένδυση</th>
+              <th class="lang lang-es">Inversión</th>
+              <th class="lang lang-fr">Investissement</th>
+
+              <th class="lang lang-en active">Indicative stock options</th>
+              <th class="lang lang-el">Ενδεικτικά stock options</th>
+              <th class="lang lang-es">Stock options indicativas</th>
+              <th class="lang lang-fr">Stock options indicatives</th>
+
+              <th class="lang lang-en active">Valuation basis</th>
+              <th class="lang lang-el">Βάση αποτίμησης</th>
+              <th class="lang lang-es">Base de valoración</th>
+              <th class="lang lang-fr">Base de valorisation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>€15,000</td>
+              <td>0.375%</td>
+              <td>€4,000,000</td>
+            </tr>
+            <tr>
+              <td>€30,000</td>
+              <td>0.75%</td>
+              <td>€4,000,000</td>
+            </tr>
+            <tr>
+              <td>€50,000</td>
+              <td>1.25%</td>
+              <td>€4,000,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col" style="margin-top:20px;">
+        <div class="highlight">
+          <div class="lang lang-en active">
+            <h3>Why stock options can be attractive</h3>
+            <p>They can align long-term incentives without immediately changing the full equity structure, while still giving strategic partners potential upside if the company grows in valuation.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Γιατί τα stock options μπορεί να είναι ελκυστικά</h3>
+            <p>Μπορούν να ευθυγραμμίσουν τα μακροπρόθεσμα κίνητρα χωρίς να αλλάζει άμεσα πλήρως η μετοχική δομή, ενώ δίνουν σε στρατηγικούς συνεργάτες πιθανό upside αν η εταιρεία αυξηθεί σε αποτίμηση.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Por qué las stock options pueden ser atractivas</h3>
+            <p>Pueden alinear incentivos a largo plazo sin modificar de inmediato toda la estructura accionarial, ofreciendo al mismo tiempo upside potencial si la valoración de la empresa crece.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Pourquoi les stock options peuvent être attractives</h3>
+            <p>Elles peuvent aligner les incitations à long terme sans modifier immédiatement toute la structure capitalistique, tout en offrant un potentiel de hausse si la valorisation de l'entreprise progresse.</p>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <div class="lang lang-en active">
+            <h3>Why future investors may prefer this</h3>
+            <p>A stock-option route can sometimes be cleaner than direct equity grants at an early stage, because it can preserve cap table flexibility while rewarding high-value commercial partners.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Γιατί οι μελλοντικοί επενδυτές μπορεί να το προτιμούν</h3>
+            <p>Η προσέγγιση μέσω stock options μπορεί σε πρώιμο στάδιο να είναι πιο καθαρή από την άμεση παραχώρηση equity, γιατί διατηρεί μεγαλύτερη ευελιξία στο cap table ενώ ανταμείβει συνεργάτες υψηλής στρατηγικής αξίας.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Por qué futuros inversores pueden preferirlo</h3>
+            <p>Una vía de stock options puede ser más limpia que otorgar equity directo en etapas tempranas, ya que preserva flexibilidad en el cap table mientras recompensa a partners comerciales estratégicos.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Pourquoi les futurs investisseurs peuvent le préférer</h3>
+            <p>Une approche par stock options peut être plus propre qu'une attribution directe d'equity à un stade précoce, car elle préserve la flexibilité du cap table tout en récompensant des partenaires commerciaux stratégiques.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="lang lang-en active">
+            <h2>Distributor upgrade path</h2>
+            <p>Partners can begin at a lower entry point and upgrade later as their market traction grows.</p>
+          </div>
+          <div class="lang lang-el">
+            <h2>Διαδρομή αναβάθμισης distributor</h2>
+            <p>Οι συνεργάτες μπορούν να ξεκινήσουν από χαμηλότερο επίπεδο και να αναβαθμιστούν αργότερα καθώς αυξάνεται η εμπορική τους δυναμική.</p>
+          </div>
+          <div class="lang lang-es">
+            <h2>Ruta de upgrade del distribuidor</h2>
+            <p>Los partners pueden empezar en un nivel más bajo y luego hacer upgrade cuando aumente su tracción comercial.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2>Parcours d'upgrade du distributeur</h2>
+            <p>Les partenaires peuvent démarrer à un niveau inférieur puis évoluer à mesure que leur traction commerciale augmente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <div class="card">
+          <div class="icon">A</div>
+          <div class="lang lang-en active">
+            <h3>Associate → Strategic</h3>
+            <p>Additional investment: <strong>€15,000</strong><br>Ideal for partners that validate demand first, then scale their commitment.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Associate → Strategic</h3>
+            <p>Επιπλέον επένδυση: <strong>€15.000</strong><br>Ιδανικό για συνεργάτες που πρώτα επιβεβαιώνουν τη ζήτηση και μετά αυξάνουν τη δέσμευσή τους.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Associate → Strategic</h3>
+            <p>Inversión adicional: <strong>€15.000</strong><br>Ideal para partners que primero validan demanda y luego amplían su compromiso.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Associate → Strategic</h3>
+            <p>Investissement additionnel : <strong>€15.000</strong><br>Idéal pour les partenaires qui valident d'abord la demande puis renforcent leur engagement.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">B</div>
+          <div class="lang lang-en active">
+            <h3>Strategic → Lead</h3>
+            <p>Additional investment: <strong>€20,000</strong><br>Built for distributors that want stronger regional or strategic positioning.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Strategic → Lead</h3>
+            <p>Επιπλέον επένδυση: <strong>€20.000</strong><br>Για distributors που θέλουν ισχυρότερη περιφερειακή ή στρατηγική θέση.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Strategic → Lead</h3>
+            <p>Inversión adicional: <strong>€20.000</strong><br>Diseñado para distribuidores que buscan una posición regional o estratégica más fuerte.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Strategic → Lead</h3>
+            <p>Investissement additionnel : <strong>€20.000</strong><br>Conçu pour les distributeurs souhaitant une position régionale ou stratégique plus forte.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">C</div>
+          <div class="lang lang-en active">
+            <h3>Strategic value of upgrades</h3>
+            <p>Upgrades allow partners to increase commissions, deepen their role in the ecosystem, and potentially expand optional equity participation over time.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Στρατηγική αξία των upgrades</h3>
+            <p>Οι αναβαθμίσεις επιτρέπουν υψηλότερες προμήθειες, βαθύτερο ρόλο στο οικοσύστημα και ενδεχόμενη διεύρυνση της προαιρετικής συμμετοχής στο equity με τον χρόνο.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Valor estratégico de los upgrades</h3>
+            <p>Los upgrades permiten mayores comisiones, un rol más profundo en el ecosistema y una posible ampliación de la participación opcional en equity con el tiempo.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Valeur stratégique des upgrades</h3>
+            <p>Les upgrades permettent d'augmenter les commissions, de renforcer le rôle dans l'écosystème et éventuellement d'élargir la participation optionnelle au capital avec le temps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="calculator">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="lang lang-en active">
+            <h2>ROI calculator</h2>
+            <p>Use this simple calculator to estimate how many subscriptions and how many months may be needed to recover the initial distributor investment.</p>
+          </div>
+          <div class="lang lang-el">
+            <h2>Υπολογιστής ROI</h2>
+            <p>Χρησιμοποιήστε αυτόν τον απλό υπολογιστή για να εκτιμήσετε πόσες συνδρομές και πόσοι μήνες μπορεί να χρειαστούν για να ανακτηθεί η αρχική επένδυση του distributor.</p>
+          </div>
+          <div class="lang lang-es">
+            <h2>Calculadora ROI</h2>
+            <p>Utilice esta calculadora simple para estimar cuántas suscripciones y cuántos meses pueden ser necesarios para recuperar la inversión inicial del distribuidor.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2>Calculateur ROI</h2>
+            <p>Utilisez ce calculateur simple pour estimer combien d'abonnements et combien de mois peuvent être nécessaires pour récupérer l'investissement initial du distributeur.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-grid">
+        <div class="calc-box">
+          <div class="lang lang-en active"><h3>Input assumptions</h3></div>
+          <div class="lang lang-el"><h3>Παραδοχές εισόδου</h3></div>
+          <div class="lang lang-es"><h3>Supuestos de entrada</h3></div>
+          <div class="lang lang-fr"><h3>Hypothèses d'entrée</h3></div>
+
+          <label for="investment" class="lang lang-en active">Investment (€)</label>
+          <label for="investment" class="lang lang-el">Επένδυση (€)</label>
+          <label for="investment" class="lang lang-es">Inversión (€)</label>
+          <label for="investment" class="lang lang-fr">Investissement (€)</label>
+          <input id="investment" type="number" value="30000" oninput="calcROI()" />
+
+          <label for="price" class="lang lang-en active">Monthly subscription price per customer (€)</label>
+          <label for="price" class="lang lang-el">Μηνιαία τιμή συνδρομής ανά πελάτη (€)</label>
+          <label for="price" class="lang lang-es">Precio mensual de suscripción por cliente (€)</label>
+          <label for="price" class="lang lang-fr">Prix mensuel d'abonnement par client (€)</label>
+          <input id="price" type="number" value="2500" oninput="calcROI()" />
+
+          <label for="monthly" class="lang lang-en active">New subscriptions sold per month</label>
+          <label for="monthly" class="lang lang-el">Νέες συνδρομές ανά μήνα</label>
+          <label for="monthly" class="lang lang-es">Nuevas suscripciones vendidas por mes</label>
+          <label for="monthly" class="lang lang-fr">Nouveaux abonnements vendus par mois</label>
+          <input id="monthly" type="number" value="2" oninput="calcROI()" />
+
+          <div class="example-box">
+            <div class="lang lang-en active">
+              Example: with €30,000 investment and €2,500 monthly subscription price, 12 subscriptions are needed for nominal recovery.
+            </div>
+            <div class="lang lang-el">
+              Παράδειγμα: με επένδυση €30.000 και μηνιαία συνδρομή €2.500, απαιτούνται 12 συνδρομές για ονομαστική ανάκτηση.
+            </div>
+            <div class="lang lang-es">
+              Ejemplo: con una inversión de €30.000 y una suscripción mensual de €2.500, se necesitan 12 suscripciones para una recuperación nominal.
+            </div>
+            <div class="lang lang-fr">
+              Exemple : avec un investissement de €30.000 et un abonnement mensuel de €2.500, 12 abonnements sont nécessaires pour une récupération nominale.
+            </div>
+          </div>
+        </div>
+
+        <div class="result-box">
+          <div class="lang lang-en active"><h3>Estimated output</h3></div>
+          <div class="lang lang-el"><h3>Εκτιμώμενο αποτέλεσμα</h3></div>
+          <div class="lang lang-es"><h3>Resultado estimado</h3></div>
+          <div class="lang lang-fr"><h3>Résultat estimé</h3></div>
+
+          <div class="result-list">
+            <div class="result-item">
+              <span class="lang lang-en active">Subscriptions needed for nominal recovery</span>
+              <span class="lang lang-el">Συνδρομές που απαιτούνται για ονομαστική ανάκτηση</span>
+              <span class="lang lang-es">Suscripciones necesarias para recuperación nominal</span>
+              <span class="lang lang-fr">Abonnements nécessaires pour récupération nominale</span>
+              <strong id="subsNeeded">12</strong>
+            </div>
+
+            <div class="result-item">
+              <span class="lang lang-en active">Estimated months to recover</span>
+              <span class="lang lang-el">Εκτιμώμενοι μήνες για ανάκτηση</span>
+              <span class="lang lang-es">Meses estimados para recuperar</span>
+              <span class="lang lang-fr">Mois estimés pour récupérer</span>
+              <strong id="monthsNeeded">6</strong>
+            </div>
+
+            <div class="result-item">
+              <span class="lang lang-en active">Monthly subscription revenue generated</span>
+              <span class="lang lang-el">Μηνιαίο subscription revenue που δημιουργείται</span>
+              <span class="lang lang-es">Ingresos mensuales por suscripción generados</span>
+              <span class="lang lang-fr">Revenu mensuel d'abonnement généré</span>
+              <strong id="monthlyRevenue">€5,000</strong>
+            </div>
+
+            <div class="result-item">
+              <span class="lang lang-en active">Simple annualized run-rate from monthly sales pace</span>
+              <span class="lang lang-el">Απλό annualized run-rate από τον μηνιαίο ρυθμό πωλήσεων</span>
+              <span class="lang lang-es">Run-rate anualizado simple desde el ritmo mensual de ventas</span>
+              <span class="lang lang-fr">Run-rate annualisé simple basé sur le rythme mensuel de ventes</span>
+              <strong id="annualRunRate">€60,000</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="lang lang-en active">
+            <h2>Why distributors may find this compelling</h2>
+            <p>A commercial model designed to combine immediate motivation, downside protection, and long-term upside.</p>
+          </div>
+          <div class="lang lang-el">
+            <h2>Γιατί το μοντέλο είναι ελκυστικό για distributors</h2>
+            <p>Ένα εμπορικό μοντέλο σχεδιασμένο να συνδυάζει άμεσο κίνητρο, προστασία από downside και μακροπρόθεσμο upside.</p>
+          </div>
+          <div class="lang lang-es">
+            <h2>Por qué este modelo puede ser atractivo para distribuidores</h2>
+            <p>Un modelo comercial diseñado para combinar motivación inmediata, protección del downside y upside a largo plazo.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h2>Pourquoi ce modèle peut séduire les distributeurs</h2>
+            <p>Un modèle commercial conçu pour combiner motivation immédiate, protection du downside et potentiel de hausse à long terme.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-4">
+        <div class="card">
+          <div class="icon">R1</div>
+          <div class="lang lang-en active">
+            <h3>Fast path to ROI</h3>
+            <p>The 100% subscription recovery mechanism helps partners recover their initial investment before transitioning into the longer-term commission model.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Γρήγορη πορεία προς ROI</h3>
+            <p>Ο μηχανισμός 100% subscription recovery βοηθά τους συνεργάτες να ανακτήσουν την αρχική επένδυση πριν περάσουν στο μακροπρόθεσμο μοντέλο προμηθειών.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Ruta rápida hacia el ROI</h3>
+            <p>El mecanismo de recuperación del 100% vía suscripciones ayuda a recuperar la inversión inicial antes de pasar al modelo de comisiones a largo plazo.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Chemin rapide vers le ROI</h3>
+            <p>Le mécanisme de récupération à 100% via abonnements aide les partenaires à récupérer leur investissement initial avant de passer au modèle de commissions de long terme.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">R2</div>
+          <div class="lang lang-en active">
+            <h3>Recurring software revenue</h3>
+            <p>Instead of relying only on one-off hardware or service sales, the model adds recurring SaaS value on top of the distributor relationship.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Recurring software revenue</h3>
+            <p>Αντί να βασίζεται μόνο σε one-off πωλήσεις hardware ή υπηρεσιών, το μοντέλο προσθέτει recurring SaaS αξία πάνω στη σχέση με τον distributor.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Ingresos recurrentes de software</h3>
+            <p>En lugar de depender solo de ventas puntuales de hardware o servicios, el modelo añade valor recurrente SaaS a la relación del distribuidor.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Revenus logiciels récurrents</h3>
+            <p>Au lieu de dépendre uniquement de ventes ponctuelles de matériel ou de services, le modèle ajoute une valeur SaaS récurrente à la relation distributeur.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">R3</div>
+          <div class="lang lang-en active">
+            <h3>Upgrade flexibility</h3>
+            <p>Partners do not need to commit to the highest level on day one. They can start smaller and expand based on traction and confidence.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Ευελιξία αναβάθμισης</h3>
+            <p>Οι συνεργάτες δεν χρειάζεται να δεσμευτούν από την πρώτη μέρα στο υψηλότερο επίπεδο. Μπορούν να ξεκινήσουν μικρότερα και να επεκταθούν ανάλογα με την εμπορική επιτυχία και την εμπιστοσύνη τους.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Flexibilidad de upgrade</h3>
+            <p>Los partners no necesitan comprometerse con el nivel más alto desde el primer día. Pueden empezar más pequeño y ampliarse según su tracción y confianza.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Flexibilité d'upgrade</h3>
+            <p>Les partenaires n'ont pas besoin de s'engager au niveau le plus élevé dès le départ. Ils peuvent commencer plus modestement puis évoluer selon leur traction et leur confiance.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">R4</div>
+          <div class="lang lang-en active">
+            <h3>Optional strategic upside</h3>
+            <p>Stock options can align distributors who want to participate not only in revenue, but also in the company's long-term value creation.</p>
+          </div>
+          <div class="lang lang-el">
+            <h3>Προαιρετικό στρατηγικό upside</h3>
+            <p>Τα stock options μπορούν να ευθυγραμμίσουν distributors που θέλουν να συμμετέχουν όχι μόνο στα έσοδα, αλλά και στη μακροπρόθεσμη δημιουργία αξίας της εταιρείας.</p>
+          </div>
+          <div class="lang lang-es">
+            <h3>Upside estratégico opcional</h3>
+            <p>Las stock options pueden alinear a distribuidores que desean participar no solo en ingresos, sino también en la creación de valor a largo plazo de la empresa.</p>
+          </div>
+          <div class="lang lang-fr">
+            <h3>Potentiel stratégique optionnel</h3>
+            <p>Les stock options peuvent aligner les distributeurs qui souhaitent participer non seulement aux revenus, mais aussi à la création de valeur à long terme de l'entreprise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container cta-box">
+      <div>
+        <div class="lang lang-en active">
+          <h2>Become a PestView distributor partner</h2>
+          <p>Enter a recurring-revenue model in a fast-modernizing industry and position your business for software, IoT, and long-term strategic upside.</p>
+        </div>
+        <div class="lang lang-el">
+          <h2>Γίνετε distributor partner της PestView</h2>
+          <p>Μπείτε σε ένα μοντέλο recurring revenue σε έναν κλάδο που εκσυγχρονίζεται γρήγορα και τοποθετήστε την επιχείρησή σας στρατηγικά σε software, IoT και μακροπρόθεσμο upside.</p>
+        </div>
+        <div class="lang lang-es">
+          <h2>Conviértase en partner distribuidor de PestView</h2>
+          <p>Entre en un modelo de ingresos recurrentes dentro de una industria en rápida modernización y posicione su empresa en software, IoT y upside estratégico a largo plazo.</p>
+        </div>
+        <div class="lang lang-fr">
+          <h2>Devenez distributeur partenaire de PestView</h2>
+          <p>Entrez dans un modèle de revenus récurrents dans un secteur en forte modernisation et positionnez votre entreprise sur le logiciel, l'IoT et le potentiel stratégique long terme.</p>
+        </div>
+      </div>
+
+      <div class="cta-card">
+        <div class="lang lang-en active">
+          <h3 style="margin:0 0 12px;">Contact</h3>
+          <p style="margin:0 0 14px;color:rgba(255,255,255,0.84);">Discuss regional opportunities, investment level, commercial structure, and upgrade options.</p>
+          <a href="mailto:info@pestview.io" class="btn btn-primary">info@pestview.io</a>
+        </div>
+        <div class="lang lang-el">
+          <h3 style="margin:0 0 12px;">Επικοινωνία</h3>
+          <p style="margin:0 0 14px;color:rgba(255,255,255,0.84);">Συζητήστε περιφερειακές ευκαιρίες, επίπεδο επένδυσης, εμπορική δομή και δυνατότητες αναβάθμισης.</p>
+          <a href="mailto:info@pestview.io" class="btn btn-primary">info@pestview.io</a>
+        </div>
+        <div class="lang lang-es">
+          <h3 style="margin:0 0 12px;">Contacto</h3>
+          <p style="margin:0 0 14px;color:rgba(255,255,255,0.84);">Hable sobre oportunidades regionales, nivel de inversión, estructura comercial y opciones de upgrade.</p>
+          <a href="mailto:info@pestview.io" class="btn btn-primary">info@pestview.io</a>
+        </div>
+        <div class="lang lang-fr">
+          <h3 style="margin:0 0 12px;">Contact</h3>
+          <p style="margin:0 0 14px;color:rgba(255,255,255,0.84);">Échangez sur les opportunités régionales, le niveau d'investissement, la structure commerciale et les options d'upgrade.</p>
+          <a href="mailto:info@pestview.io" class="btn btn-primary">info@pestview.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>PestView Distributor Partner Program</div>
+      <div class="lang lang-en active">Valuation reference: €4,000,000</div>
+      <div class="lang lang-el">Βάση αποτίμησης: €4.000.000</div>
+      <div class="lang lang-es">Referencia de valoración: €4.000.000</div>
+      <div class="lang lang-fr">Référence de valorisation : €4.000.000</div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang){
+      document.documentElement.lang = lang;
+
+      const allLangBlocks = document.querySelectorAll('.lang');
+      allLangBlocks.forEach(el => el.classList.remove('active'));
+
+      const targetBlocks = document.querySelectorAll('.lang-' + lang);
+      targetBlocks.forEach(el => el.classList.add('active'));
+
+      try {
+        localStorage.setItem('pv_lang', lang);
+      } catch(e){}
+    }
+
+    function formatCurrency(value){
+      return '€' + Number(value).toLocaleString('en-US', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+    }
+
+    function calcROI(){
+      const investment = parseFloat(document.getElementById('investment').value) || 0;
+      const price = parseFloat(document.getElementById('price').value) || 0;
+      const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+
+      const subs = price > 0 ? Math.ceil(investment / price) : 0;
+      const months = monthly > 0 ? Math.ceil(subs / monthly) : 0;
+      const monthlyRevenue = price * monthly;
+      const annualRunRate = monthlyRevenue * 12;
+
+      document.getElementById('subsNeeded').textContent = subs.toLocaleString('en-US');
+      document.getElementById('monthsNeeded').textContent = months.toLocaleString('en-US');
+      document.getElementById('monthlyRevenue').textContent = formatCurrency(monthlyRevenue);
+      document.getElementById('annualRunRate').textContent = formatCurrency(annualRunRate);
+    }
+
+    window.addEventListener('DOMContentLoaded', function(){
+      const savedLang = (function(){
+        try { return localStorage.getItem('pv_lang'); } catch(e){ return null; }
+      })();
+
+      const defaultLang = savedLang || 'en';
+      document.getElementById('languageSwitcher').value = defaultLang;
+      setLang(defaultLang);
+      calcROI();
+    });
+  </script>
 </body>
 </html>
+
